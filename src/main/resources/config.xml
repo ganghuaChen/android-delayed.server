@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean id="main" name="Main" class="se.sandos.android.delayed.server.impl.Main">
+        <property name="delayedServerHandler" ref="handler"/>
+        <property name="fetcher" ref="trainfetcher"/>
+    </bean>
+
+    <bean id="handler" class="se.sandos.android.delayed.server.impl.DelayedServerHandler"/>
+
+	<bean id="trainfetcher" name="Train Fetcher"
+		class="se.sandos.android.delayed.server.impl.TrainFetcher">
+		<property name="minimalDelay" value="20"></property>
+		<property name="uris">
+		  <set>
+		      <value>http://m.trafikverket.se/TAGTRAFIK/(S(btuvtr45ho15pf55d5vyygen))/WapPages/StationShow.aspx?JF=-1&amp;station=74,V%C3%A5&amp;arrivals=0</value>
+		      <value>http://m.trafikverket.se/tagtrafik/(0030bg55y1sv0bvbtgnoo555)/WapPages/StationShow.aspx?JF=-1&amp;station=74,M&amp;arrivals=0</value>
+		      <value>http://m.trafikverket.se/tagtrafik/(0030bg55y1sv0bvbtgnoo555)/WapPages/StationShow.aspx?JF=-1&amp;station=74,Hb&amp;arrivals=0</value>
+		      <value>http://m.trafikverket.se/tagtrafik/(0030bg55y1sv0bvbtgnoo555)/WapPages/StationShow.aspx?JF=-1&amp;station=74,Cst&amp;arrivals=0</value>
+		      <value>http://m.trafikverket.se/tagtrafik/(0030bg55y1sv0bvbtgnoo555)/WapPages/StationShow.aspx?JF=-1&amp;station=74,Gä&amp;arrivals=0</value>
+		      <value>http://m.trafikverket.se/tagtrafik/(0030bg55y1sv0bvbtgnoo555)/WapPages/StationShow.aspx?JF=-1&amp;station=74,U&amp;arrivals=0</value>
+		      <value>http://m.trafikverket.se/trafikinfo/(2xluc155l4l1zg454hdkm155)/WapPages/StationShow.aspx?JF=-1&amp;station=74,Av</value>
+		  </set>
+		</property>
+	</bean>
+</beans>
