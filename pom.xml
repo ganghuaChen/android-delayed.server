@@ -49,18 +49,14 @@
 			  <executions>
 			    <execution>
 			      <goals>
-				<goal>exec</goal>
+				<goal>java</goal>
 			      </goals>
 			    </execution>
 			  </executions>
 			  <configuration>
-			    <executable>java</executable>
 			    <workingDirectory>.</workingDirectory>
-			    <arguments>
-			      <argument>-classpath</argument>
-			      <classpath/>
-			      <argument>se.sandos.android.delayed.server.impl.Main</argument>
-			    </arguments>
+			    <cleanupDaemonThreads>true</cleanupDaemonThreads>
+			    <mainClass>se.sandos.android.delayed.server.impl.Main</mainClass>
 			  </configuration>
 			</plugin>
 	      </plugins>
